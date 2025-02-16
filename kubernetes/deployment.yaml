@@ -1,31 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hola-mundo
+  name: hello-world-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hola-mundo
+      app: hello-world-app
   template:
     metadata:
       labels:
-        app: hola-mundo
+        app: hello-world-app
     spec:
       containers:
-      - name: hola-mundo
-        image: hola-mundo:latest
+      - name: hello-world-container
+        image: hello-world-app # Make sure this matches the image name used in the build stage
         ports:
-        - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: hola-mundo-service
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    app: hola-mundo
+        - containerPort: 80  # Adjust as necessary for your app
