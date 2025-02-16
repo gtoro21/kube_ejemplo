@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-app
+  name: tu-app-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: hello-world-app
+      app: tu-app
   template:
     metadata:
       labels:
-        app: hello-world-app
+        app: tu-app
     spec:
       containers:
-      - name: hello-world-container
-        image: hello-world-app # Make sure this matches the image name used in the build stage
+      - name: tu-app
+        image: nginx:latest # Imagen base
         ports:
-        - containerPort: 80  # Adjust as necessary for your app
+        - containerPort: 80
